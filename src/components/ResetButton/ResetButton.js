@@ -1,7 +1,9 @@
+import React from 'react'
+
 export function ResetButton(){
     return(
         <div>
-            <button>Reset Button</button>
+            <button>Resetar curtidas e matches</button>
         </div>
     )
 } 

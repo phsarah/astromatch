@@ -1,8 +1,12 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import { ChooseProfilePage } from "../ChooseProfilePage/ChooseProfilePage";
-import { ResetButton } from "../ResetButton/ResetButton"
+import { ResetButton } from "../ResetButton/ResetButton";
+import { MatchListPage } from "../MatchListPage/MatchListPage" ;
+import { AppBar } from '../AppBar/AppBar';
 
-const Container = styled.div`
+
+const MainContainer = styled.div`
     width: 100vw;
     height: 100vh;
     background: #6C7A89;
@@ -11,12 +15,23 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 `
+const Card = styled.div`
+    width: 400px;
+    height: 650px;
+    background: #fff; 
+    border: 1px solid black;
+    border-radius: 5px;  
+`
 
 export function Main(){
     return(
-        <Container>
+        <MainContainer>
+          <Card>
+            <AppBar/>
             <ChooseProfilePage/>
-            <ResetButton/>
-        </Container>
+             <MatchListPage/>
+          </Card>
+          <ResetButton/>
+        </MainContainer>
     )
 }

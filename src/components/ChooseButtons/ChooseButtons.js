@@ -1,9 +1,19 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+   
+`
+
 export function ChooseButtons(){
     return(
         <div>
-            Sou o Choose Buttons
-            <button>Não</button>
-            <button>Sim</button>
+            <ButtonsContainer>
+                <button>Não</button>
+                <button>Sim</button>
+            </ButtonsContainer>
         </div>
     )
 }

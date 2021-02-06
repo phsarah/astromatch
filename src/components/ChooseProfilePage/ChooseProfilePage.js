@@ -1,24 +1,19 @@
-import styled from 'styled-components'
-import { AppBar } from '../AppBar/AppBar'
 import { ProfileCard } from '../ProfileCard/ProfileCard'
 import { ChooseButtons } from '../ChooseButtons/ChooseButtons' 
 
-const Card = styled.div`
-    width: 400px;
-    height: 600px;
-    background: #fff; 
-    border: 1px solid black;
-    border-radius: 5px;  
-`
 
 export function ChooseProfilePage(){
-    
+    const profileToChoose = {
+        "id": "xUrxMGvODWZa4ZASbfwx",
+        "age": 26,
+        "name": "Carol Danvers",
+        "photo": "https://s1.r29static.com/bin/entry/7e8/340x408,85/2138124/image.webp",
+        "bio": "Gosto de voar e de gatos. Procuro relações que respeitem minha independência."
+    }
     return(
-        <Card>
-           <AppBar/>
-        <hr/>
-           <ProfileCard/>
+        <div>
+           <ProfileCard profile={profileToChoose}/>
            <ChooseButtons/>
-       </Card>
+       </div>
     )
 }
