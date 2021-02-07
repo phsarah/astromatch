@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import { MatchListItem } from '../MatchListItem/MatchListItem'
 
@@ -11,18 +12,21 @@ border-radius: 5px;
 `
 
 export function MatchListPage(){
-    const matches = [
-        {
-            "id": "71gMbZs2txS9LDvGK5Ew",
-            "age": 26,
-            "name": "Anitta",
-            "photo": "https://images.outgo.com.br/clients/1/events/2923/Anitta-Perfil-4-1.png",
-            "bio": "Amo cachorros e sair para dançar. Procuro alguém animado e sem neuras."
-          }
-    ]
+   const [matches, setMatches] = useState([])
+   
+   useEffect(() => {
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/darvas/matches`)
+            .then(response => 
+            setMatches(response.data.matches)
+            )
+            .catch(e => 
+                console.log(e.message)
+            )
+   }, [setMatches])
+
     return(
         <Card>
-            {matches.map((profile) => {
+            {matches && matches.map((profile) => {
                 return <MatchListItem profile={profile}/>
             })}
         </Card>

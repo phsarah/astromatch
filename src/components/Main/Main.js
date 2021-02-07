@@ -29,7 +29,7 @@ export function Main(){
           <Card>
             <AppBar/>
             <ChooseProfilePage/>
-             <MatchListPage/>
+             {/* <MatchListPage/> */}
           </Card>
           <ResetButton/>
         </MainContainer>
