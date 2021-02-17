@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ButtonsContainer = styled.div`
@@ -7,12 +8,13 @@ const ButtonsContainer = styled.div`
    
 `
 
-export function ChooseButtons(){
+export function ChooseButtons(props){
+
     return(
         <div>
             <ButtonsContainer>
-                <button>Não</button>
-                <button>Sim</button>
+                <button onClick={props.onClickNo}>Não</button>
+                <button onClick={props.onClickYes}>Sim</button>
             </ButtonsContainer>
         </div>
     )

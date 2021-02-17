@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ChooseProfilePage } from "../ChooseProfilePage/ChooseProfilePage";
+import { ChooseProfilePage } from "../../pages/ChooseProfilePage/ChooseProfilePage";
 import { ResetButton } from "../ResetButton/ResetButton";
-import { MatchListPage } from "../MatchListPage/MatchListPage" ;
+import { MatchListPage } from "../../pages/MatchListPage/MatchListPage" ;
 import { AppBar } from '../AppBar/AppBar';
 
 
@@ -24,14 +24,32 @@ const Card = styled.div`
 `
 
 export function Main(){
+  const [selectedPage, setSelectedPage] = useState('choose-profile')
+
+  const goToMatchListPage = () => {
+    setSelectedPage("match-list")
+  }
+  const goToChooseProfilePage = () =>{
+    setSelectedPage("choose-profile")
+  }
+  const renderSelectedPage = () =>{
+    switch(selectedPage){
+      case "choose-profile":
+        return <ChooseProfilePage/>;
+      case "match-list":
+      return <MatchListPage/>;
+      default:
+        return <ChooseProfilePage/>;
+    }
+  } 
+ 
     return(
         <MainContainer>
           <Card>
-            <AppBar/>
-            <ChooseProfilePage/>
-             {/* <MatchListPage/> */}
+            <AppBar goToChooseProfilePage= {goToChooseProfilePage} goToMatchListPage={goToMatchListPage}/>
+            {renderSelectedPage()}
           </Card>
-          <ResetButton/>
+          {/* <ResetButton/> */}
         </MainContainer>
     )
 }

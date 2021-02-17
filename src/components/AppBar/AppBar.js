@@ -8,12 +8,12 @@ const AppBarContainer = styled.div`
 `
 
 
-export function AppBar(){
+export function AppBar(props){
     return(
         <AppBarContainer>
-            <button>Voltar</button>
+            <button onClick={props.goToChooseProfilePage}>Voltar</button>
             <p>Astromatch</p>
-           <button> Lista</button>
+           <button onClick={props.goToMatchListPage}> Lista</button>
         </AppBarContainer>
     )
 }
